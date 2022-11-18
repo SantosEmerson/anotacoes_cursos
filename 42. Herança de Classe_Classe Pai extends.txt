@@ -1,0 +1,237 @@
+<<<<<<<<<<<<<<<<< 42. Herança de Classe >>>>>>>>>>>>>>>>>>>
+
+Considere a definição da classe pai Veiculo mostrada abaixo, que se refere a todos os tipos de veículo disponíveis em uma concessionária:
+
+// Definição da classe
+class Veiculo {
+    constructor(modelo, marca, ano) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.ano = ano;
+    }
+    marcaEAno() {
+        return `Este veículo é de ${this.ano}, da marca ${this.marca}`;
+    }
+}
+Agora, imagine que você queira criar uma classe Carro, que seja filha da classe Veiculo. Qual seria a melhor maneira de fazer isso?
+
+
+class Carro extends Veiculo {
+    
+}
+==========================================
+
+️️📄 Classes Escritor e Usuário
+
+Defina uma classe Escritor, que contenha os seguintes métodos de instância:
+
+obterNomeCompleto(), que retorna o nome completo do Escritor.
+podeVotar(), que retorna true quando a idade do Escritor é de 16 anos ou mais, e false caso contrário.
+publicarArtigo(), que exibe no console a seguinte string: "Artigo publicado".
+Observe a classe Usuario existente, e certifique-se de não duplicar código. Para isso, faça com que a classe Escritor seja filha da classe Usuario.
+
+// Definição da classe Usuario
+class Usuario {
+    constructor(nome, sobrenome, idade) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.idade = idade;
+    }
+    
+    obterNomeCompleto() {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+    
+    podeVotar() {
+        return this.idade >= 16;
+    }
+}
+
+class Escritor extends Usuario {
+    publicarArtigo() {
+        return "Artigo publicado"
+    }
+}
+// Insira aqui a definição da classe Escritor.
+// Lembre-se de usar herança e de criar o método
+// de instância publicarArtigo().
+==========================================
+
+📄 Herança de classe em lista de tarefas
+
+Imagine que você esteja criando um aplicativo de lista de tarefas. Nesse aplicativo, é necessário cadastrar dois tipos de tarefas, cada uma implementada em uma classe diferente:
+
+Tarefa, que é uma tarefa que você deseja realizar futuramente.
+TarefaMarcar, que é uma tarefa que pode ser marcada como concluída ou não concluída.
+As classes Tarefa e TarefaMarcar compartilham algumas funcionalidades, mas a classe TarefaMarcar deve ter uma funcionalidade extra chamada marcarComoConcluida(). Esse método de instância deve marcar a tarefa como concluída.
+
+No código que você está recebendo, a classe Tarefa já está criada. Crie a classe TarefaMarcar, que será filha de Tarefa, e dentro dela crie o método de instância marcarComoConcluida().
+
+Notas:
+
+Uma classe filha também pode acessar variáveis ​​de instância de sua classe pai.
+Para marcar a tarefa como concluída, atribua true à variável de instância estaCompleta.
+
+// Classe Tarefa
+class Tarefa {
+    constructor(titulo, estaCompleta) {
+        this.titulo = titulo;
+        this.estaCompleta = estaCompleta;
+    }
+
+    obterFormatacao() {
+        let status = "";
+        if (this.estaCompleta) {
+            status = "✅";
+        } else {
+            status = "⏳";
+        }
+        return `[${status}] ${this.titulo}`;
+    }
+}
+
+// Implemente a classe TarefaMarcar
+// Não se esqueça de herdar da classe Tarefa
+class TarefaMarcar extends Tarefa{
+    // Implemente o método de instância marcarComoConcluida()
+    marcarComoConcluida() {
+        return true
+    }
+}
+
+// Uso das classes
+let tarefa = new Tarefa("Aprendizagem de Programação", false);
+console.log(tarefa.obterFormatacao());
+
+let tarefaMarcar = new TarefaMarcar("Aspirar o chão", false);
+console.log(tarefaMarcar.obterFormatacao());
+
+tarefaMarcar.marcarComoConcluida();
+
+console.log(tarefaMarcar); // estaCompleta deve ser true
+console.log(tarefaMarcar.obterFormatacao());
+
+================================
+
+▶️ Sobrescrevendo métodos da classe pai
+Considere a definição da seguinte classe pai, chamada Veiculos, que contém um método de instância chamado marcaEAno():
+
+// Definição da classe
+class Veiculos {
+    constructor(modelo, marca, ano) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.ano = ano;
+    }
+    marcaEAno() {
+        return `Este veículo é de ${this.ano}, da marca ${this.marca}`;
+    }
+}
+Agora, imagine que você queria criar uma classe filha, chamada Carro, que vai sobrescrever o método marcaEAno().
+Qual seria a maneira correta de fazer isso?
+
+class Carro extends Veiculos {
+    marcaEAno() {
+        return `Este carro é de ${this.ano}, da marca ${this.marca}`;
+    }
+}
+================================================
+️️📄 Sobrescrevendo um método da classe Usuário
+
+Defina uma classe Escritor, filha da classe Usuario, que contenha os seguintes métodos de instância:
+
+obterNomeCompleto(), que retorna uma string contendo o nome completo do escritor, adicionando ao final um caractere de espaço e o texto "[escritor]".
+podeVotar(), que retorna true quando a idade é de 16 anos ou mais, e false caso contrário.
+publicarArtigo(), que exibe no console o texto: "Artigo publicado".
+Observe a classe Usuario existente, e certifique-se de fazer a herança de classe e sobrescrever o método que foi solicitado.
+
+Seguem dois exemplos de retorno do método obterNomeCompleto() que você vai implementar:
+
+a) Para o nome "Paulo" e sobrenome "Marques", o retorno será: "Paulo Marques [escritor]"
+
+b) Para o nome "Luis" e sobrenome "Vieira", o retorno será: "Luis Vieira [escritor]"
+
+// Classe Usuario
+class Usuario {
+    constructor(nome, sobrenome, idade) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.idade = idade;
+    }
+
+    obterNomeCompleto() {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+
+    podeVotar() {
+        return this.idade >= 16;
+    }
+}
+class Escritor extends Usuario {
+    publicarArtigo() {
+        return "Artigo publicado"
+    }
+}
+// Implemente a classe Escritor
+// Ela será filha da classe Usuario
+
+
+// Testando a classe
+let escritora = new Escritor ("Helena", "Silva", 22);
+console.log(escritora.obterNomeCompleto());
+escritora.publicarArtigo();
+
+=========================================
+️️📄 Classes Gerente e Funcionário
+
+Complete a classe Gerente, filha da classe Funcionario, de forma que ela possua todos os métodos de sua classe pai, que são:
+
+obterNomeCompleto()
+obterIniciais()
+obterPosicao()
+O método obterPosicao() da classe Gerente deverá retornar a string:
+
+"X é o gerente"
+
+onde X é o primeiro nome do gerente.
+
+Observe a classe Funcionario existente, e certifique-se de usar herança de classe.
+
+// Definição da classe Funcionario
+class Funcionario {
+    constructor(nome, sobrenome, cargo) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.cargo = cargo;
+    }
+
+    obterNomeCompleto() {
+        return `${this.nome} ${this.sobrenome}`;
+    }
+
+    obterIniciais() {
+        return this.nome[0] + this.sobrenome[0];
+    }
+
+    obterPosicao() {
+        return `${this.nome} trabalha como ${this.cargo}`;
+    }
+}
+class Gerente extends Funcionario {
+     obterPosicao() {
+        return `${this.nome} ${this.sobrenome} é o gerente`
+     }
+}
+// Defina aqui a classe Gerente
+// Lembre-se de usar herança de classe
+
+
+// Uso da classe Funcionario
+let sueli = new Funcionario("Sueli", "Borges", "desenvolvedora");
+console.log(sueli.obterNomeCompleto());
+console.log(sueli.obterPosicao());
+
+// Uso da classe Gerente
+let carlos = new Gerente("Carlos", "Santos", "gerente");
+console.log(carlos.obterNomeCompleto());
+console.log(carlos.obterPosicao());

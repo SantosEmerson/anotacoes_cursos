@@ -1,0 +1,20 @@
+
+Considere a definição da classe pai Veiculo mostrada abaixo, que se refere a todos os tipos de veículo disponíveis em uma concessionária:
+
+// Definição da classe
+class Veiculo {
+    constructor(modelo, marca, ano) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.ano = ano;
+    }
+    marcaEAno() {
+        return `Este veículo é de ${this.ano}, da marca ${this.marca}`;
+    }
+}
+Agora, imagine que você queira criar uma classe Carro, que seja filha da classe Veiculo. Qual seria a melhor maneira de fazer isso?
+
+
+class Carro extends Veiculo {
+    
+}
